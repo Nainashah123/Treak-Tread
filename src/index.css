@@ -1,0 +1,172 @@
+/* Import Inter Tight font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+
+/* Custom CSS variables for theme consistency */
+:root {
+  --color-lime-brand: #C5FA1F;
+  --color-gray-light: #F2F2F2;
+  --color-gray-medium: #969696;
+  --color-purple-brand: #623CEA;
+  --color-red-brand: #E01715;
+  --color-black: #000000;
+  --color-white: #FFFFFF;
+}
+
+/* Base styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter Tight', system-ui, sans-serif;
+  font-weight: 500;
+  color: var(--color-black);
+  background-color: var(--color-white);
+  line-height: 1.1;
+  margin: 0;
+  padding: 0;
+}
+
+/* Custom utility classes for Figma-specific styles */
+.text-heading-1-desktop {
+  font-size: 128px;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  font-weight: 500;
+}
+
+.text-heading-1-mobile {
+  font-size: 56px;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  font-weight: 500;
+}
+
+.text-heading-2-desktop {
+  font-size: 96px;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  font-weight: 500;
+}
+
+.text-heading-2-mobile {
+  font-size: 48px;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  font-weight: 500;
+}
+
+.text-heading-3-desktop {
+  font-size: 64px;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  font-weight: 500;
+}
+
+.text-heading-3-mobile {
+  font-size: 40px;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  font-weight: 500;
+}
+
+.text-heading-4-desktop {
+  font-size: 48px;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  font-weight: 500;
+}
+
+.text-heading-4-mobile {
+  font-size: 32px;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  font-weight: 500;
+}
+
+.text-heading-5-desktop {
+  font-size: 32px;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  font-weight: 500;
+}
+
+.text-heading-5-mobile {
+  font-size: 24px;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  font-weight: 500;
+}
+
+.text-heading-6-desktop {
+  font-size: 24px;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  font-weight: 500;
+}
+
+.text-heading-6-mobile {
+  font-size: 16px;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  font-weight: 500;
+}
+
+.text-body-xl {
+  font-size: 24px;
+  line-height: 1.1;
+  font-weight: 500;
+}
+
+.text-body-large {
+  font-size: 20px;
+  line-height: 1.1;
+  font-weight: 500;
+}
+
+.text-body-medium {
+  font-size: 16px;
+  line-height: 1.1;
+  font-weight: 500;
+}
+
+/* Button styles matching Figma */
+.btn-primary {
+  padding: 24px 32px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-black);
+  color: var(--color-black);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.1;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-gray-light);
+}
+
+.btn-secondary {
+  padding: 24px 32px;
+  background-color: var(--color-black);
+  border: 1px solid var(--color-gray-light);
+  color: var(--color-white);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.1;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #333333;
+}
