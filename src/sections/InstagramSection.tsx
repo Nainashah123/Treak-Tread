@@ -2,10 +2,10 @@ import React from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 // Import Instagram images
-import instagram1 from '../assets/images/instagram-1.png';
-import instagram2 from '../assets/images/instagram-2-6e2546.png';
-import instagram3 from '../assets/images/instagram-3.png';
-import instagram4 from '../assets/images/instagram-4.png';
+import instagram1 from '../assets/images/journal-instagram-1.jpg';
+import instagram2 from '../assets/images/journal-instagram-2.jpg';
+import instagram3 from '../assets/images/journal-instagram-3.jpg';
+import instagram4 from '../assets/images/journal-instagram-4.jpg';
 
 const InstagramSection: React.FC = () => {
   const instagramImages = [

@@ -3,7 +3,7 @@ import { ArrowUpRight } from 'lucide-react';
 
 interface ButtonProps {
   children: React.ReactNode;
-  variant?: 'primary' | 'secondary';
+  variant?: 'primary' | 'secondary' | 'outline';
   size?: 'small' | 'large';
   showArrow?: boolean;
   className?: string;
@@ -25,6 +25,7 @@ const Button: React.FC<ButtonProps> = ({
   const variants = {
     primary: 'bg-white border-black text-black hover:bg-gray-100',
     secondary: 'bg-black border-gray-200 text-white hover:bg-gray-800',
+    outline: 'bg-white border-black text-black hover:bg-black hover:text-white',
   };
 
   const sizes = {

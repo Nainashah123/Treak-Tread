@@ -14,6 +14,20 @@
   --color-white: #FFFFFF;
 }
 
+/* Marquee animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 15s linear infinite;
+}
+
 /* Base styles */
 * {
   box-sizing: border-box;
@@ -169,4 +183,9 @@ body {
 
 .btn-secondary:hover {
   background-color: #333333;
+}
+
+/* Text shadow utility for hero text */
+.text-shadow-lg {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }

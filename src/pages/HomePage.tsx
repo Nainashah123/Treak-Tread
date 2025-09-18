@@ -1,4 +1,6 @@
 import React from 'react';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 import HeroSection from '../sections/HeroSection';
 import BannerSection from '../sections/BannerSection';
 import BestSellersSection from '../sections/BestSellersSection';
@@ -12,6 +14,7 @@ import InstagramSection from '../sections/InstagramSection';
 const HomePage = () => {
   return (
     <div className="min-h-screen">
+      <Header />
       <HeroSection />
       <BannerSection />
       <BestSellersSection />
@@ -21,6 +24,7 @@ const HomePage = () => {
       <StoriesSection />
       <TestimonialsSection />
       <InstagramSection />
+      <Footer />
     </div>
   );
 };

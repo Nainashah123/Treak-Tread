@@ -1,39 +1,45 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
-import Footer from './components/Footer';
 
 // Pages
 import HomePage from './pages/HomePage';
-import ShopPage from './pages/ShopPage';
+import ProductListPage from './pages/ProductListPage';
+import ProductDetailsPage from './pages/ProductDetailsPage';
 import WomenPage from './pages/WomenPage';
 import MenPage from './pages/MenPage';
 import JournalPage from './pages/JournalPage';
+import ArticleDetailPage from './pages/ArticleDetailPage';
 import AboutPage from './pages/AboutPage';
 import SearchPage from './pages/SearchPage';
 import LoginPage from './pages/LoginPage';
 import CartPage from './pages/CartPage';
+import CheckoutPage from './pages/CheckoutPage';
+import CheckoutPickupPage from './pages/CheckoutPickupPage';
+import CheckoutPaymentPage from './pages/CheckoutPaymentPage';
+import ProcessingPage from './pages/ProcessingPage';
+import OrderTrackingPage from './pages/OrderTrackingPage';
 
 function App() {
   return (
     <Router>
-      <div className="min-h-screen flex flex-col">
-        <Header />
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/shop" element={<ShopPage />} />
-            <Route path="/women" element={<WomenPage />} />
-            <Route path="/men" element={<MenPage />} />
-            <Route path="/journal" element={<JournalPage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/search" element={<SearchPage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/cart" element={<CartPage />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/shop" element={<ProductListPage />} />
+        <Route path="/products" element={<ProductListPage />} />
+        <Route path="/product/:id" element={<ProductDetailsPage />} />
+        <Route path="/women" element={<WomenPage />} />
+        <Route path="/men" element={<MenPage />} />
+        <Route path="/journal" element={<JournalPage />} />
+        <Route path="/journal/article/:id" element={<ArticleDetailPage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/search" element={<SearchPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/cart" element={<CartPage />} />
+        <Route path="/checkout" element={<CheckoutPage />} />
+        <Route path="/checkout/pickup" element={<CheckoutPickupPage />} />
+        <Route path="/checkout/payment" element={<CheckoutPaymentPage />} />
+        <Route path="/checkout/processing" element={<ProcessingPage />} />
+        <Route path="/order/tracking" element={<OrderTrackingPage />} />
+      </Routes>
     </Router>
   );
 }

@@ -1,4 +1,33 @@
-# React + TypeScript + Vite
+# Track & Tread E-Commerce Store
+
+A modern e-commerce store built with React, TypeScript, and Vite, following the design from Figma.
+
+## Recent Updates
+
+### Product List Page (PLP)
+- ✅ Created a complete Product List Page based on Figma design
+- ✅ Organized into reusable sections and components
+- ✅ Downloaded and integrated product images from Figma
+- ✅ Implemented responsive grid layout with 4 products per row
+- ✅ Added product badges (Best Seller, Discount)
+- ✅ Created color variant selectors
+- ✅ Pricing display with compare-at-price strikethrough
+- ✅ Category tabs (Shop All, Shoes, Apparel, Accessories)
+- ✅ Filter button with chevron icon
+
+### Components Created
+- `ProductListHeaderSection` - Page title section
+- `ProductListTabsSection` - Category tabs and filters
+- `ProductListGridSection` - Product grid with images and info
+- `ColorVariant` & `ColorVariants` - Color selection components
+- Updated `Badge` component for purple/red variants
+- Updated `ProductCard` component for PLP layout
+
+### Routes
+- `/shop` - Product List Page
+- `/products` - Alternative route to Product List Page
+
+## Setup
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 

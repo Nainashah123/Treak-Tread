@@ -32,7 +32,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
         <img 
           src={image} 
           alt={name}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-contain"
         />
         {/* Badges */}
         <div className="absolute top-2 right-2 flex flex-col gap-1">
