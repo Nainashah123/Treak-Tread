@@ -1,11 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../components/ui/Button';
+import ThankYouDiscountModal from '../components/ThankYouDiscountModal';
+import UpsellModal from '../components/UpsellModal';
 
 const OrderTrackingPage: React.FC = () => {
   const navigate = useNavigate();
   const [emailUpdates, setEmailUpdates] = useState(false);
   const [saveInfo, setSaveInfo] = useState(false);
+  const [showThankYouModal, setShowThankYouModal] = useState(false);
+  const [showUpsellModal, setShowUpsellModal] = useState(false);
+
+  // Show thank you modal after payment completion
+  useEffect(() => {
+    // Simulate showing modal after payment is completed
+    const timer = setTimeout(() => {
+      setShowThankYouModal(true);
+    }, 2000); // Show after 2 seconds
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Show upsell modal after thank you modal is closed
+  const handleThankYouModalClose = () => {
+    setShowThankYouModal(false);
+    // Show upsell modal after a short delay
+    setTimeout(() => {
+      setShowUpsellModal(true);
+    }, 1000);
+  };
+
+  const handleUpsellShopNow = () => {
+    // Handle adding sunglasses to order
+    console.log('Adding sunglasses to order');
+    // You could navigate to cart or show success message
+  };
 
   // Mock order data
   const orderData = {
@@ -308,6 +337,21 @@ You'll receive email updates as your order progresses!`);
           </div>
         </div>
       </div>
+
+      {/* Thank You Discount Modal */}
+      <ThankYouDiscountModal
+        isOpen={showThankYouModal}
+        onClose={handleThankYouModalClose}
+        autoCloseDelay={1200000} // 20 minutes
+      />
+
+      {/* Upsell Modal */}
+      <UpsellModal
+        isOpen={showUpsellModal}
+        onClose={() => setShowUpsellModal(false)}
+        onShopNow={handleUpsellShopNow}
+        autoCloseDelay={600000} // 10 minutes
+      />
     </div>
   );
 };

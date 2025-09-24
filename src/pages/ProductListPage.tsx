@@ -6,6 +6,8 @@ import ProductListTabsSection from '../sections/ProductListTabsSection';
 import ProductListGridSection, { type Product } from '../sections/ProductListGridSection';
 import FilterSidebar, { type FilterState } from '../sections/FilterSidebar';
 import FilterAppliedSection from '../sections/FilterAppliedSection';
+import AutoDiscountModal from '../components/AutoDiscountModal';
+import { useScrollTrigger } from '../hooks/useScrollTrigger';
 
 // Import images
 import product1 from '../assets/images/product-1-38b848.png';
@@ -275,6 +277,13 @@ const ProductListPage: React.FC = () => {
     activity: []
   });
 
+  // Auto-trigger modal on scroll
+  const { shouldShow: shouldShowModal, reset: resetModal } = useScrollTrigger({
+    threshold: 25, // Show when 25% scrolled
+    delay: 3000, // 3 seconds delay
+    once: true // Only show once per session
+  });
+
   const handleTabChange = (tabId: string) => {
     setActiveTab(tabId);
     // Here you would typically filter products based on the selected tab
@@ -411,6 +420,13 @@ const ProductListPage: React.FC = () => {
       </main>
 
       <Footer />
+
+      {/* Auto-trigger Discount Modal */}
+      <AutoDiscountModal
+        isOpen={shouldShowModal}
+        onClose={resetModal}
+        autoCloseDelay={15000} // 15 seconds auto-close
+      />
     </div>
   );
 };

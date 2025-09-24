@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ProductCard from '../components/ui/ProductCard';
+import DiscountModal from '../components/DiscountModal';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 // Import product images
@@ -10,6 +11,8 @@ import product4 from '../assets/images/product-4-76ce2c.png';
 import product5 from '../assets/images/product-5-7d74f7.png';
 
 const BestSellersSection: React.FC = () => {
+  const [isDiscountModalOpen, setIsDiscountModalOpen] = useState(false);
+
   const products = [
     {
       id: 1,
@@ -18,9 +21,9 @@ const BestSellersSection: React.FC = () => {
       price: "$343.99",
       compareAtPrice: "$529.99",
       badges: [
-        { label: "Best Seller", variant: "purple" as const },
-        { label: "-20%", variant: "red" as const }
+        { label: "Best Seller", variant: "purple" as const }
       ],
+      hasDiscount: true,
       variants: [
         { color: "#3C3C3C", selected: true },
         { color: "#BDC7D1", selected: false },
@@ -99,6 +102,8 @@ const BestSellersSection: React.FC = () => {
                 compareAtPrice={product.compareAtPrice}
                 badges={product.badges}
                 variants={product.variants}
+                hasDiscount={product.hasDiscount}
+                onClick={product.hasDiscount ? () => setIsDiscountModalOpen(true) : undefined}
               />
               {index < products.length - 1 && (
                 <div className="w-px bg-black hidden md:block" />
@@ -135,6 +140,12 @@ const BestSellersSection: React.FC = () => {
 
       {/* Bottom section border */}
       <div className="h-px bg-black mt-10" />
+
+      {/* Discount Modal */}
+      <DiscountModal
+        isOpen={isDiscountModalOpen}
+        onClose={() => setIsDiscountModalOpen(false)}
+      />
     </section>
   );
 };

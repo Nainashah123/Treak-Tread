@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ProductCard from '../components/ui/ProductCard';
+import DiscountModal from '../components/DiscountModal';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 // Import product images
@@ -10,12 +11,15 @@ import product4 from '../assets/images/product-4-76ce2c.png';
 import product5 from '../assets/images/product-5-7d74f7.png';
 
 const InterestedProductsSection: React.FC = () => {
+  const [isDiscountModalOpen, setIsDiscountModalOpen] = useState(false);
+
   const products = [
     {
       id: 1,
       image: product2,
       name: "Nimbus Glide Icecore",
       price: "$529.99",
+      hasDiscount: false,
       variants: [
         { color: "#C3C6C5", selected: true },
         { color: "#E1E4E3", selected: false }
@@ -27,7 +31,11 @@ const InterestedProductsSection: React.FC = () => {
       name: "Carbon Pulse Blackout",
       price: "$343.99",
       compareAtPrice: "$529.99",
-      badges: [{ label: "-20%", variant: "red" as const }],
+      badges: [
+        { label: "Best Seller", variant: "purple" as const },
+        { label: "-20%", variant: "red" as const }
+      ],
+      hasDiscount: true,
       variants: [
         { color: "#3C3C3C", selected: true },
         { color: "#BDC7D1", selected: false },
@@ -40,6 +48,7 @@ const InterestedProductsSection: React.FC = () => {
       image: product3,
       name: "Voltstorm Radiance",
       price: "$529.99",
+      hasDiscount: false,
       variants: [
         { color: "#DBD5D0", selected: true },
         { color: "#F92131", selected: false },
@@ -51,6 +60,7 @@ const InterestedProductsSection: React.FC = () => {
       image: product4,
       name: "Lunar Flow Hyperlime",
       price: "$529.99",
+      hasDiscount: false,
       variants: [
         { color: "#F9EB3D", selected: true },
         { color: "#F92131", selected: false }
@@ -61,6 +71,7 @@ const InterestedProductsSection: React.FC = () => {
       image: product5,
       name: "Ashtrail Coregrey X",
       price: "$529.99",
+      hasDiscount: false,
       variants: [
         { color: "#A6A3A4", selected: true },
         { color: "#282929", selected: false },
@@ -68,6 +79,7 @@ const InterestedProductsSection: React.FC = () => {
       ]
     }
   ];
+
 
   return (
     <section className="py-10">
@@ -92,6 +104,11 @@ const InterestedProductsSection: React.FC = () => {
                 compareAtPrice={product.compareAtPrice}
                 badges={product.badges}
                 variants={product.variants}
+                hasDiscount={product.hasDiscount}
+                onClick={product.hasDiscount ? () => {
+                  console.log('Product clicked, opening modal for:', product.name);
+                  setIsDiscountModalOpen(true);
+                } : undefined}
               />
               {index < products.length - 1 && (
                 <div className="w-px bg-black" />
@@ -125,6 +142,12 @@ const InterestedProductsSection: React.FC = () => {
 
       {/* Bottom section border */}
       <div className="h-px bg-black mt-10" />
+
+      {/* Discount Modal */}
+      <DiscountModal
+        isOpen={isDiscountModalOpen}
+        onClose={() => setIsDiscountModalOpen(false)}
+      />
     </section>
   );
 };

@@ -1,46 +1,55 @@
 import React from 'react';
+import { Check } from 'lucide-react';
 
 interface CheckboxProps {
-  id: string;
-  label: string;
   checked: boolean;
   onChange: (checked: boolean) => void;
+  label: string;
   className?: string;
+  disabled?: boolean;
 }
 
 const Checkbox: React.FC<CheckboxProps> = ({
-  id,
-  label,
   checked,
   onChange,
-  className = ''
+  label,
+  className = '',
+  disabled = false,
 }) => {
+  const baseStyles = 'flex items-start gap-2 cursor-pointer';
+  const disabledStyles = disabled ? 'opacity-50 cursor-not-allowed' : '';
+
+  const checkboxStyles = `
+    w-5 h-5 border border-black flex items-center justify-center transition-colors duration-200 flex-shrink-0
+    ${checked ? 'bg-black' : 'bg-white'}
+    ${disabled ? 'cursor-not-allowed' : 'cursor-pointer'}
+  `.trim();
+
+  const labelStyles = `
+    text-body-medium text-black flex-1 leading-tight
+    ${disabled ? 'cursor-not-allowed' : 'cursor-pointer'}
+  `.trim();
+
+  const handleClick = () => {
+    if (!disabled) {
+      onChange(!checked);
+    }
+  };
+
   return (
-    <div className={`flex items-center gap-2 ${className}`}>
-      <input
-        type="checkbox"
-        id={id}
-        checked={checked}
-        onChange={(e) => onChange(e.target.checked)}
-        className="w-5 h-5 border border-black appearance-none cursor-pointer relative
-                   checked:border-black checked:bg-white
-                   focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2"
-        style={{
-          background: checked ? 'white' : 'white',
-          backgroundImage: checked 
-            ? `url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='black' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m13.854 3.646-7.5 7.5a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L6 10.293l7.146-7.147a.5.5 0 0 1 .708.708z'/%3e%3c/svg%3e")`
-            : 'none',
-          backgroundSize: '12px 12px',
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center'
-        }}
-      />
-      <label 
-        htmlFor={id} 
-        className="text-base font-medium text-black cursor-pointer leading-[1.1]"
+    <div className={`${baseStyles} ${disabledStyles} ${className}`}>
+      <div
+        className={checkboxStyles}
+        onClick={handleClick}
+      >
+        {checked && <Check className="w-3 h-3 text-white" />}
+      </div>
+      <span
+        className={labelStyles}
+        onClick={handleClick}
       >
         {label}
-      </label>
+      </span>
     </div>
   );
 };

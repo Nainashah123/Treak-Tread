@@ -2,10 +2,10 @@ import React from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 // Import Instagram images
-import instagram1 from '../assets/images/journal-instagram-1.jpg';
-import instagram2 from '../assets/images/journal-instagram-2.jpg';
-import instagram3 from '../assets/images/journal-instagram-3.jpg';
-import instagram4 from '../assets/images/journal-instagram-4.jpg';
+const instagram1 = '/images/instagram-1.jpg';
+const instagram2 = '/images/instagram-2-6e2546.jpg';
+const instagram3 = '/images/instagram-3.jpg';
+const instagram4 = '/images/instagram-3.jpg'; // Using same image as instagram3 since only 3 unique images were provided
 
 const InstagramSection: React.FC = () => {
   const instagramImages = [

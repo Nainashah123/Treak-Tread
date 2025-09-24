@@ -10,8 +10,17 @@ import InterestedProductsSection from '../sections/InterestedProductsSection';
 import StoriesSection from '../sections/StoriesSection';
 import TestimonialsSection from '../sections/TestimonialsSection';
 import InstagramSection from '../sections/InstagramSection';
+import AutoDiscountModal from '../components/AutoDiscountModal';
+import { useScrollTrigger } from '../hooks/useScrollTrigger';
 
 const HomePage = () => {
+  // Auto-trigger modal on scroll
+  const { shouldShow: shouldShowModal, reset: resetModal } = useScrollTrigger({
+    threshold: 30, // Show when 30% scrolled
+    delay: 2000, // 2 seconds delay
+    once: true // Only show once per session
+  });
+
   return (
     <div className="min-h-screen">
       <Header />
@@ -25,6 +34,13 @@ const HomePage = () => {
       <TestimonialsSection />
       <InstagramSection />
       <Footer />
+
+      {/* Auto-trigger Discount Modal */}
+      <AutoDiscountModal
+        isOpen={shouldShowModal}
+        onClose={resetModal}
+        autoCloseDelay={12000} // 12 seconds auto-close
+      />
     </div>
   );
 };

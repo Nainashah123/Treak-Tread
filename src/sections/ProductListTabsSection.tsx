@@ -69,7 +69,7 @@ const ProductListTabsSection: React.FC<ProductListTabsSectionProps> = ({
           className="flex items-center gap-2 px-6 py-4 border border-black text-black hover:bg-black hover:text-white transition-colors duration-200"
         >
           <span className="text-xl font-medium">
-            {showFilters ? `Hide Filters${appliedFiltersCount > 0 ? ` (${appliedFiltersCount})` : ''}` : 'Show Filters'}
+            Show Filters{appliedFiltersCount > 0 ? ` (${appliedFiltersCount})` : ''}
           </span>
           {/* Chevron Icon */}
           <svg 

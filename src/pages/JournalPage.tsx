@@ -1,23 +1,23 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import HeroArticleSection from '../sections/HeroArticleSection';
-import ArticleGridSection, { Article } from '../sections/ArticleGridSection';
+import ArticleGridSection, { type Article } from '../sections/ArticleGridSection';
 import JournalTabs from '../components/ui/JournalTabs';
 import Pagination from '../components/ui/Pagination';
 import InstagramSection from '../sections/InstagramSection';
 
 // Import journal images from Figma
-import journalHeroImage from '../assets/images/journal-hero-image.jpg';
-import journalArticle1 from '../assets/images/journal-article-1.jpg';
-import journalArticle2 from '../assets/images/journal-article-2.jpg';
-import journalArticle3 from '../assets/images/journal-article-3.jpg';
-import journalArticle4 from '../assets/images/journal-article-4.jpg';
-import journalArticle5 from '../assets/images/journal-article-5.jpg';
-import journalArticle6 from '../assets/images/journal-article-6.jpg';
-import journalArticle7 from '../assets/images/journal-article-7.jpg';
-import journalArticle8 from '../assets/images/journal-article-8.jpg';
-import journalArticle9 from '../assets/images/journal-article-9.jpg';
+const journalHeroImage = '/images/journal-hero-image.jpg';
+const journalArticle1 = '/images/journal-article-1.jpg';
+const journalArticle2 = '/images/journal-article-2.jpg';
+const journalArticle3 = '/images/journal-article-3-401e31.jpg';
+const journalArticle4 = '/images/journal-article-4.jpg';
+const journalArticle5 = '/images/journal-article-5.jpg';
+const journalArticle6 = '/images/journal-article-6-1e4a7e.jpg';
+const journalArticle7 = '/images/journal-article-7.jpg';
+const journalArticle8 = '/images/journal-article-8.jpg';
+const journalArticle9 = '/images/journal-article-9.jpg';
 
 const JournalPage = () => {
   const [activeTab, setActiveTab] = useState('all');

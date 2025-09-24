@@ -14,6 +14,8 @@ interface ProductCardProps {
   badges?: Array<{ label: string; variant: 'purple' | 'red' }>;
   variants?: ColorVariant[];
   className?: string;
+  onClick?: () => void;
+  hasDiscount?: boolean;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({
@@ -24,9 +26,22 @@ const ProductCard: React.FC<ProductCardProps> = ({
   badges = [],
   variants = [],
   className = '',
+  onClick,
+  hasDiscount = false,
 }) => {
+  const handleClick = () => {
+    console.log('ProductCard clicked, onClick:', !!onClick, 'hasDiscount:', hasDiscount);
+    if (onClick) {
+      onClick();
+    }
+  };
+
   return (
-    <div className={`flex-1 ${className}`}>
+    <div 
+      className={`flex-1 ${className} ${onClick ? 'cursor-pointer hover:bg-gray-50 transition-colors' : ''}`} 
+      onClick={handleClick}
+      style={{ border: onClick ? '2px solid transparent' : 'none' }}
+    >
       {/* Product Image */}
       <div className="relative h-[450px] bg-gray-100 overflow-hidden">
         <img 
@@ -41,6 +56,11 @@ const ProductCard: React.FC<ProductCardProps> = ({
               {badge.label}
             </Badge>
           ))}
+          {hasDiscount && (
+            <Badge variant="red">
+              -20%
+            </Badge>
+          )}
         </div>
       </div>
 

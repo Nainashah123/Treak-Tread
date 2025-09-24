@@ -9,6 +9,7 @@ interface ButtonProps {
   className?: string;
   onClick?: () => void;
   disabled?: boolean;
+  type?: 'button' | 'submit' | 'reset';
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -19,12 +20,13 @@ const Button: React.FC<ButtonProps> = ({
   className = '',
   onClick,
   disabled = false,
+  type = 'button',
 }) => {
-  const baseStyles = 'inline-flex items-center gap-2 font-medium transition-colors duration-200 border';
+  const baseStyles = 'inline-flex items-center justify-center gap-2 font-medium transition-colors duration-200 border';
   
   const variants = {
-    primary: 'bg-white border-black text-black hover:bg-gray-100',
-    secondary: 'bg-black border-gray-200 text-white hover:bg-gray-800',
+    primary: 'bg-black border-black text-white hover:bg-gray-800',
+    secondary: 'bg-white border-black text-black hover:bg-gray-100',
     outline: 'bg-white border-black text-black hover:bg-black hover:text-white',
   };
 
@@ -43,6 +45,7 @@ const Button: React.FC<ButtonProps> = ({
 
   return (
     <button
+      type={type}
       className={classes}
       onClick={onClick}
       disabled={disabled}
