@@ -23,15 +23,6 @@ interface EditPasswordForm {
   confirmPassword: string;
 }
 
-interface EditShippingForm {
-  country: string;
-  address: string;
-  apartment?: string;
-  city: string;
-  province: string;
-  postalCode: string;
-}
-
 // Yup Validation Schemas
 const editNameSchema = yup.object({
   firstName: yup.string().required('First name is required').min(2, 'First name must be at least 2 characters'),
@@ -56,6 +47,9 @@ const editShippingSchema = yup.object({
   province: yup.string().required('Province is required'),
   postalCode: yup.string().required('Postal code is required').matches(/^[A-Za-z]\d[A-Za-z] \d[A-Za-z]\d$/, 'Please enter a valid postal code (e.g., K1A 0A6)'),
 });
+
+// Type inferences from schemas
+type EditShippingForm = yup.InferType<typeof editShippingSchema>;
 
 const MyAccountPage: React.FC = () => {
   const [activeSection, setActiveSection] = useState<'order-history' | 'profile-settings'>('order-history');

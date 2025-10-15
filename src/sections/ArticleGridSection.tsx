@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import ArticleCard from '../components/ui/ArticleCard';
 
 export interface Article {
   id: number;
@@ -31,7 +30,7 @@ const ArticleGridSection: React.FC<ArticleGridSectionProps> = ({
           {/* Articles Images Row */}
           <div className="flex">
             {row.map((article, index) => (
-              <React.Fragment key={article.id}>
+              <div key={article.id} style={{ display: 'contents' }}>
                 <div className="flex-1">
                   <div className="h-[640px] bg-gray-100 overflow-hidden">
                     <img 
@@ -54,7 +53,7 @@ const ArticleGridSection: React.FC<ArticleGridSectionProps> = ({
           {/* Articles Info Row */}
           <div className="flex">
             {row.map((article, index) => (
-              <React.Fragment key={`info-${article.id}`}>
+              <div key={`info-${article.id}`} style={{ display: 'contents' }}>
                 <div className="flex-1 p-6 flex flex-col justify-center gap-6">
                   <div className="flex flex-col gap-4">
                     <span className="text-xl font-medium text-[#969696]">
@@ -81,7 +80,7 @@ const ArticleGridSection: React.FC<ArticleGridSectionProps> = ({
                 {index < row.length - 1 && (
                   <div className="w-px bg-black" />
                 )}
-              </React.Fragment>
+              </div>
             ))}
           </div>
           

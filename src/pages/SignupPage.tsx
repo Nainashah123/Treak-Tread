@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import * as Yup from 'yup';
 import InputField from '../components/ui/InputField';
@@ -81,7 +81,7 @@ const SignupPage = () => {
   };
 
   // Clear form data on page refresh and auto-focus
-  React.useEffect(() => {
+  useEffect(() => {
     // Clear any existing form data on mount (handles page refresh)
     setFormData({
       firstName: '',
