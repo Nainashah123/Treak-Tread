@@ -43,7 +43,7 @@ const ArticleGridSection: React.FC<ArticleGridSectionProps> = ({
                 {index < row.length - 1 && (
                   <div className="w-px bg-black" />
                 )}
-              </React.Fragment>
+              </div>
             ))}
           </div>
           
