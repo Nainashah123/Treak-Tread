@@ -61,3 +61,6 @@ export const useScrollTrigger = (options: UseScrollTriggerOptions = {}) => {
     hasTriggered
   };
 };
+
+
+
