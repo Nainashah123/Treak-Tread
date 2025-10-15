@@ -51,7 +51,7 @@ const editPasswordSchema = yup.object({
 const editShippingSchema = yup.object({
   country: yup.string().required('Country is required'),
   address: yup.string().required('Address is required').min(5, 'Address must be at least 5 characters'),
-  apartment: yup.string(),
+  apartment: yup.string().optional(),
   city: yup.string().required('City is required').min(2, 'City must be at least 2 characters'),
   province: yup.string().required('Province is required'),
   postalCode: yup.string().required('Postal code is required').matches(/^[A-Za-z]\d[A-Za-z] \d[A-Za-z]\d$/, 'Please enter a valid postal code (e.g., K1A 0A6)'),

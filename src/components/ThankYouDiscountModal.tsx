@@ -18,9 +18,10 @@ const ThankYouDiscountModal: React.FC<ThankYouDiscountModalProps> = ({
     if (!isOpen) return;
 
     // Reset timer when modal opens
-    setTimeLeft(20);
+    const initialMinutes = autoCloseDelay / 60000;
+    setTimeLeft(initialMinutes);
 
-    // Auto-close timer (20 minutes)
+    // Auto-close timer
     const timer = setInterval(() => {
       setTimeLeft(prev => {
         if (prev <= 1) {
@@ -32,7 +33,7 @@ const ThankYouDiscountModal: React.FC<ThankYouDiscountModalProps> = ({
     }, 60000); // Update every minute
 
     return () => clearInterval(timer);
-  }, [isOpen, onClose]);
+  }, [isOpen, onClose, autoCloseDelay]);
 
   const handleTakeAdvantage = () => {
     // Handle taking advantage of the discount

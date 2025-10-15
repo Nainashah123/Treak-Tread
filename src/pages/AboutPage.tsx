@@ -1,8 +1,6 @@
-import React from 'react';
 import { Play, ArrowLeft, ArrowRight } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import Badge from '../components/ui/Badge';
 import ProductCard from '../components/ui/ProductCard';
 
 // Import images from Figma

@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import * as Yup from 'yup';
 import InputField from '../components/ui/InputField';
-import Button from '../components/ui/Button';
 import FullWidthButton from '../components/ui/FullWidthButton';
 import Checkbox from '../components/ui/Checkbox';
 
@@ -80,8 +79,6 @@ const SignupPage = () => {
       }
     }
   };
-
-  const isFormValid = formData.firstName && formData.lastName && formData.email && formData.password && formData.termsAgreed;
 
   // Clear form data on page refresh and auto-focus
   React.useEffect(() => {

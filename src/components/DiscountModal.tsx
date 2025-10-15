@@ -71,7 +71,7 @@ const DiscountModal: React.FC<DiscountModalProps> = ({ isOpen, onClose }) => {
               type="email"
               placeholder="Enter your email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={setEmail}
               className="w-full"
             />
           </div>

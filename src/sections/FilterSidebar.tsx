@@ -127,22 +127,19 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
           <h3 className="text-2xl font-medium text-black leading-[1.1]">Shop for</h3>
           <div className="space-y-4">
             <Checkbox
-              id="women"
               label="Women"
               checked={filters.shopFor.includes('women')}
-              onChange={(checked) => handleShopForChange('women')}
+              onChange={() => handleShopForChange('women')}
             />
             <Checkbox
-              id="men"
               label="Men"
               checked={filters.shopFor.includes('men')}
-              onChange={(checked) => handleShopForChange('men')}
+              onChange={() => handleShopForChange('men')}
             />
             <Checkbox
-              id="kids"
               label="Kids"
               checked={filters.shopFor.includes('kids')}
-              onChange={(checked) => handleShopForChange('kids')}
+              onChange={() => handleShopForChange('kids')}
             />
           </div>
         </div>
@@ -174,10 +171,9 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
             {activities.map((activity) => (
               <Checkbox
                 key={activity}
-                id={activity.toLowerCase().replace(/\s+/g, '-')}
                 label={activity}
                 checked={filters.activity.includes(activity.toLowerCase().replace(/\s+/g, '-'))}
-                onChange={(checked) => handleActivityChange(activity.toLowerCase().replace(/\s+/g, '-'))}
+                onChange={() => handleActivityChange(activity.toLowerCase().replace(/\s+/g, '-'))}
               />
             ))}
           </div>

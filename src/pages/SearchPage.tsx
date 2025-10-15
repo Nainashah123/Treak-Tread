@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import Header from '../components/Header';
 import ProductCard from '../components/ui/ProductCard';
-import Badge from '../components/ui/Badge';
 import Button from '../components/ui/Button';
-import { ChevronRight, ChevronLeft } from 'lucide-react';
+import { ChevronLeft } from 'lucide-react';
 
 // Mock data for demonstration
 const mockProducts = [
@@ -259,7 +258,7 @@ const SearchPage = () => {
             <div className="flex gap-2">
               <Button
                 variant="outline"
-                size="sm"
+                size="small"
                 onClick={prevSlide}
                 className="w-14 h-14 p-0"
               >
@@ -267,7 +266,7 @@ const SearchPage = () => {
               </Button>
               <Button
                 variant="outline"
-                size="sm"
+                size="small"
                 onClick={nextSlide}
                 className="w-14 h-14 p-0"
               >
@@ -395,14 +394,14 @@ const SearchPage = () => {
             <div className="flex gap-2">
               <Button
                 variant="outline"
-                size="sm"
+                size="small"
                 className="w-14 h-14 p-0"
               >
                 <ChevronLeft className="h-6 w-6" />
               </Button>
               <Button
                 variant="outline"
-                size="sm"
+                size="small"
                 className="w-14 h-14 p-0"
               >
                 <img src="/images/arrow-top-right.svg" alt="Arrow" className="h-6 w-6" />

@@ -28,8 +28,11 @@ const UpsellModal: React.FC<UpsellModalProps> = ({
     if (!isOpen) return;
 
     // Reset timer when modal opens
-    setTimeLeft(9);
-    setSecondsLeft(59);
+    const totalSeconds = autoCloseDelay / 1000;
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = Math.floor(totalSeconds % 60);
+    setTimeLeft(minutes);
+    setSecondsLeft(seconds);
 
     // Countdown timer
     const timer = setInterval(() => {
@@ -49,7 +52,7 @@ const UpsellModal: React.FC<UpsellModalProps> = ({
     }, 1000); // Update every second
 
     return () => clearInterval(timer);
-  }, [isOpen, onClose]);
+  }, [isOpen, onClose, autoCloseDelay]);
 
   const handleShopNow = () => {
     console.log('Adding sunglasses to order:', selectedColor);

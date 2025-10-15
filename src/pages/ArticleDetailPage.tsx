@@ -193,7 +193,7 @@ const ArticleDetailPage = () => {
                 </h3>
               </div>
               
-              {relatedArticles.map((relatedArticle, index) => (
+              {relatedArticles.map((relatedArticle) => (
                 <div key={relatedArticle.id} className="border-b border-black">
                   <div className="h-[500px] bg-gray-100 overflow-hidden">
                     <img 

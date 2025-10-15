@@ -1,5 +1,3 @@
-import React from 'react';
-
 const MenPage = () => {
   return (
     <div className="min-h-screen">

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
 import InputField from '../components/ui/InputField';
 import FullWidthButton from '../components/ui/FullWidthButton';
@@ -20,7 +20,6 @@ const resetPasswordSchema = Yup.object().shape({
 });
 
 const ResetPasswordPage = () => {
-  const location = useLocation();
   const [formData, setFormData] = useState({
     newPassword: '',
     confirmPassword: '',

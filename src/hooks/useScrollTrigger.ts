@@ -19,7 +19,7 @@ export const useScrollTrigger = (options: UseScrollTriggerOptions = {}) => {
   useEffect(() => {
     if (once && hasTriggered) return;
 
-    let timeoutId: NodeJS.Timeout;
+    let timeoutId: number;
 
     const handleScroll = () => {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;

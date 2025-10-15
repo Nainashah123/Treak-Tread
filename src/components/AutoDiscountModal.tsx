@@ -90,7 +90,7 @@ const AutoDiscountModal: React.FC<AutoDiscountModalProps> = ({
               type="email"
               placeholder="Enter your email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={setEmail}
               className="w-full"
             />
           </div>
